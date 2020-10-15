@@ -1,0 +1,18 @@
+---
+Name: jobfluent
+Only:
+  moduleexists: 'tractorcow/silverstripe-fluent'
+After:
+  - '#versionedfiles'
+  - '#JobModule'
+---
+Job\Job:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  field_exclude:
+    - TagSortTitle
+Job\JobCategory:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  field_exclude:
+    - TagSortTitle

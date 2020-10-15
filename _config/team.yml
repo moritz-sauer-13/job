@@ -1,0 +1,11 @@
+---
+Name: jobteam
+Only:
+  moduleexists: 'tietge/team'
+After:
+  - '#versionedfiles'
+  - '#JobModule'
+---
+Job\JobsPage:
+  extensions:
+    - Job\JobPageTeamExtension

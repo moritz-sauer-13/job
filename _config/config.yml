@@ -1,0 +1,7 @@
+---
+Name: JobModule
+---
+#Overwrite in own project if needed
+JobModuleConfig:
+  CategoriesEnabled: true
+  DetailViewEnabled: false
