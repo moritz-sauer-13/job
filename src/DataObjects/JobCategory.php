@@ -71,5 +71,6 @@ class JobCategory extends DataObject
   {
     parent::onBeforeWrite();
     $this->TagSortTitle = $this->Title;
+    $this->extend("updateOnBeforeWrite");
   }
 }
