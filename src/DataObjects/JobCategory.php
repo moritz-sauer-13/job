@@ -68,9 +68,34 @@ class JobCategory extends DataObject
    * Event handler called before writing to the database.
    */
   public function onBeforeWrite()
-  {
-    parent::onBeforeWrite();
-    $this->TagSortTitle = $this->Title;
-    $this->extend("updateOnBeforeWrite");
-  }
+    {
+        parent::onBeforeWrite();
+        if($this->URLSegment == "")
+        {
+            $this->URLSegment = $this->constructURLSegment();
+        }
+        $this->TagSortTitle = $this->Title;
+        $this->extend("updateOnBeforeWrite");
+    }
+
+    private function constructURLSegment()
+    {
+        return $this->cleanLink(strtolower(str_replace(" ", "-", $this->Title)));
+    }
+
+    private function cleanLink($string)
+    {
+        $string = str_replace("ä", "ae", $string);
+        $string = str_replace("ü", "ue", $string);
+        $string = str_replace("ö", "oe", $string);
+        $string = str_replace("Ä", "Ae", $string);
+        $string = str_replace("Ü", "Ue", $string);
+        $string = str_replace("Ö", "Oe", $string);
+        $string = str_replace("ß", "ss", $string);
+        $string = str_replace(["´", ",", ":", ";"], "", $string);
+        $string = str_replace(["´", ",", ":", ";"], "", $string);
+        $string = str_replace(["/", "(", ")"], "_", $string);
+        $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+        return $string;
+    }
 }
