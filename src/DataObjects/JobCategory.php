@@ -37,7 +37,8 @@ class JobCategory extends DataObject
   private static $db = [
     'Title' => 'Text',
     'TagSortTitle'  =>  'Text',
-    'Sort'  =>  'Int'
+    'Sort'  =>  'Int',
+    'URLSegment' => 'Varchar(255)'
   ];
   /**
    * CMS Fields
