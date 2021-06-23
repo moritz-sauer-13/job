@@ -37,7 +37,8 @@ class JobCategory extends DataObject
   private static $db = [
     'Title' => 'Text',
     'TagSortTitle'  =>  'Text',
-    'Sort'  =>  'Int'
+    'Sort'  =>  'Int',
+    'URLSegment' => 'Varchar(255)'
   ];
   /**
    * CMS Fields
@@ -67,7 +68,7 @@ class JobCategory extends DataObject
   /**
    * Event handler called before writing to the database.
    */
-    public function onBeforeWrite()
+  public function onBeforeWrite()
     {
         parent::onBeforeWrite();
         if($this->URLSegment == "")
