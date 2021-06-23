@@ -108,7 +108,7 @@ class JobsPage extends Page
                 )
             );
         }
-        $this->extend('updateCMSFields', $fields);
+        $this->extend('updateJobPageCMSFields', $fields);
         return $fields;
     }
 }
