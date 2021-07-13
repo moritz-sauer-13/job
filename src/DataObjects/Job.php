@@ -114,6 +114,8 @@ class Job extends DataObject
                 )->setShouldLazyLoad(true)->setCanCreate(false)->setTitleField("TagSortTitle")
             );
         }
+        
+        $this->extend('updateJobCMSFields', $fields);
 
         return $fields;
     }
