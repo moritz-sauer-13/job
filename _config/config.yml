@@ -5,3 +5,4 @@ Name: JobModule
 JobModuleConfig:
   CategoriesEnabled: true
   DetailViewEnabled: false
+  CirclesEnabled: false
