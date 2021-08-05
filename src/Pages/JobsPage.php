@@ -87,15 +87,17 @@ class JobsPage extends Page
         );
 
 
-        $fields->addFieldToTab(
-            'Root.JobCircle',
-            GridField::create(
-                'JobCircle',
-                'Job Infokreis',
-                $this->JobCircle(),
-                GridFieldConfig_RecordEditor::create()
-            )
-        );
+        if (Config::inst()->get("JobModuleConfig")["CirclesEnabled"] != "" && Config::inst()->get("JobModuleConfig")["CategoriesEnabled"] == true) {
+                $fields->addFieldToTab(
+                'Root.JobCircle',
+                GridField::create(
+                    'JobCircle',
+                    'Job Infokreis',
+                    $this->JobCircle(),
+                    GridFieldConfig_RecordEditor::create()
+                )
+            );
+        }
 
         if (Config::inst()->get("JobModuleConfig")["CategoriesEnabled"] != "" && Config::inst()->get("JobModuleConfig")["CategoriesEnabled"] == true) {
             $fields->addFieldToTab(
